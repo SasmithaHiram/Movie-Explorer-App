@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./MovieList.css";
 import MovieCard from "./MovieCard";
+import axios from "axios";
 
 const MovieList = () => {
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  const fetchMovies = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.themoviedb.org/3/trending/movie/day",
+        {
+          params: {
+            api_key: "a859c5b5d3130a70473019bbc95cfd73",
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error Fetching Movies", error);
+    }
+  };
+
   return (
     <section className="movie_list">
       <header className="align_center movie_list_header">
