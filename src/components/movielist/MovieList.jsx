@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import axios from "axios";
 
 const MovieList = () => {
+  const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     fetchMovies();
   }, []);
@@ -18,6 +20,7 @@ const MovieList = () => {
           },
         }
       );
+      setMovies(response.data.results);
       console.log(response.data);
     } catch (error) {
       console.error("Error Fetching Movies", error);
@@ -48,7 +51,9 @@ const MovieList = () => {
         </div>
       </header>
       <div className="movie_cards">
-        <MovieCard />
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </section>
   );
