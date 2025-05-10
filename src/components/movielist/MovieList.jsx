@@ -8,6 +8,10 @@ const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
+  const [sort, setSort] = useState({
+    by: "default",
+    order: "asc",
+  });
 
   useEffect(() => {
     fetchMovies();
@@ -43,23 +47,45 @@ const MovieList = () => {
     }
   };
 
+  const handleSort = (e) => {
+    const { name, value } = e.target;
+    setSort((prev) => ({ ...prev, [name]: value }));
+  };
+
+  console.log(sort);
+  
   return (
     <section className="movie_list">
       <header className="align_center movie_list_header">
         <h2 className="align_center movie_list_heading">Trending</h2>
         <div className="align_center movie_list_fs">
+          <FilterGroup
+            minRating={minRating}
+            onRatingClick={handleFilter}
+            ratings={[8, 7, 6]}
+          />
 
-          <FilterGroup minRating={minRating} onRatingClick={handleFilter} ratings={[8, 7, 6]}/>
-
-          <select name="" id="" className="movie_sorting">
-            <option value="">Sort By</option>
-            <option value="">Date</option>
-            <option value="">Rating</option>
+          <select
+            name="by"
+            id=""
+            className="movie_sorting"
+            onChange={handleSort}
+            value={sort.by}
+          >
+            <option value="default">Sort By</option>
+            <option value="release_date">Date</option>
+            <option value="vote_average">Rating</option>
           </select>
 
-          <select name="" id="" className="movie_sorting">
-            <option value="">Ascending</option>
-            <option value="">Descending</option>
+          <select
+            name="order"
+            id=""
+            className="movie_sorting"
+            onChange={handleSort}
+            value={sort.order}
+          >
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
           </select>
         </div>
       </header>

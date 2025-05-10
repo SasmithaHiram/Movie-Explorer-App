@@ -12,7 +12,7 @@ const FilterGroup = ({ minRating, onRatingClick, ratings }) => {
           key={rate}
           onClick={() => onRatingClick(rate)}
         >
-          8+ Star
+          {rate}+ Star
         </li>
       ))}
     </ul>
