@@ -5,6 +5,7 @@ import axios from "axios";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
+  // const [filterMovies, setFilterMovies]  =useState(second)
   const [minRating, setMinRating] = useState(0);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const MovieList = () => {
     setMinRating(rate);
 
     const filtered = movies.filter((movie) => movie.vote_average >= rate);
-    setMovies(filtered);
+    setMovies(movies)
   };
 
   return (
