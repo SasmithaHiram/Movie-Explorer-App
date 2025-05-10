@@ -1,6 +1,6 @@
 # 🎬 MovieHub
 
-**MovieHub** is a sleek and responsive movie discovery app built with **React + Vite**, powered by the **TMDb API**. It allows users to explore trending, top-rated, and upcoming movies, filter by rating, sort by date or score, and switch between light and dark modes—fully optimized for mobile and desktop experiences.
+**MovieHub** is a sleek and responsive movie discovery app built with **React + Vite**, powered by the **TMDb API**. It allows users to explore trending, top-rated, and upcoming movies, filter by rating, sort by date or rating, and switch between light and dark modes fully optimized for desktop and mobile experiences.
 
 ---
 
@@ -23,7 +23,7 @@
 - **Framework**: React + Vite  
 - **Styling**: Tailwind CSS  
 - **API**: TMDb (The Movie Database)  
-- **Deployment**: Vercel / Netlify *(optional)*
+- **Deployment**: Netlify
 
 ---
 
