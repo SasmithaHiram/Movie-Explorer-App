@@ -1,12 +1,42 @@
-# React + Vite
+# 🎬 MovieHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**MovieHub** is a sleek and responsive movie discovery app built with **React + Vite**, powered by the **TMDb API**. It allows users to explore trending, top-rated, and upcoming movies, filter by rating, sort by date or score, and switch between light and dark modes—fully optimized for mobile and desktop experiences.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔥 **Trending Movies** – See what’s popular right now.
+- ⭐ **Top Rated** – Browse movies with the highest ratings.
+- 🎬 **Upcoming Releases** – Stay updated with what's coming soon.
+- 🎚️ **Filter by Rating** – Choose minimum rating thresholds (6+, 7+, 8+, 9+).
+- ↕️ **Sort Movies** – Sort by:
+  - Release Date (Ascending / Descending)
+  - Rating (Ascending / Descending)
+- 🌙 **Dark Mode** – Switch to a clean and modern dark interface.
+- 📱 **Responsive Design** – Looks great on all screen sizes.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧰 Tech Stack
+
+- **Framework**: React + Vite  
+- **Styling**: Tailwind CSS  
+- **API**: TMDb (The Movie Database)  
+- **Deployment**: Vercel / Netlify *(optional)*
+
+---
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or newer)
+- TMDb API Key – [Create one here](https://www.themoviedb.org/documentation/api)
+
+### Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/moviehub.git
+   cd moviehub
