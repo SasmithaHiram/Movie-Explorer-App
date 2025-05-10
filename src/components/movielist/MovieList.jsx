@@ -3,6 +3,7 @@ import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import axios from "axios";
 import FilterGroup from "./FilterGroup";
+import _, { sortBy } from "lodash";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -16,6 +17,13 @@ const MovieList = () => {
   useEffect(() => {
     fetchMovies();
   }, []);
+
+  useEffect(() => {
+    if (sort.by !== "default") {
+      const sortedMovies = _.orderBy(filterMovies, [sortBy], [sort.order]);
+      setFilterMovies(sortedMovies);
+    }
+  }, [sort]);
 
   const fetchMovies = async () => {
     try {
@@ -52,8 +60,6 @@ const MovieList = () => {
     setSort((prev) => ({ ...prev, [name]: value }));
   };
 
-  console.log(sort);
-  
   return (
     <section className="movie_list">
       <header className="align_center movie_list_header">
