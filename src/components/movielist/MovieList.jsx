@@ -49,7 +49,7 @@ const MovieList = () => {
         <h2 className="align_center movie_list_heading">Trending</h2>
         <div className="align_center movie_list_fs">
 
-          <FilterGroup minRating={minRating} onRatingClick={handleFilter} />
+          <FilterGroup minRating={minRating} onRatingClick={handleFilter} ratings={[8, 7, 6]}/>
 
           <select name="" id="" className="movie_sorting">
             <option value="">Sort By</option>
