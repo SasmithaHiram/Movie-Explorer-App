@@ -5,7 +5,9 @@ const App = () => {
   return (
     <div className="app">
       <Navbar />
-      <MovieList />
+      <MovieList type="popular" title="Trending" />
+      <MovieList type="top_rated" title="Top Rated" />
+      <MovieList type="upcoming" title="Upcomming" />
     </div>
   );
 };

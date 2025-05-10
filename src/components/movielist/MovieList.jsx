@@ -5,7 +5,7 @@ import axios from "axios";
 import FilterGroup from "./FilterGroup";
 import _, { sortBy } from "lodash";
 
-const MovieList = () => {
+const MovieList = ({ type, title }) => {
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
@@ -28,7 +28,7 @@ const MovieList = () => {
   const fetchMovies = async () => {
     try {
       const response = await axios.get(
-        "https://api.themoviedb.org/3/trending/movie/day",
+        `https://api.themoviedb.org/3/movie/${type}`,
         {
           params: {
             api_key: "a859c5b5d3130a70473019bbc95cfd73",
@@ -61,9 +61,9 @@ const MovieList = () => {
   };
 
   return (
-    <section className="movie_list">
+    <section className="movie_list" id={type}>
       <header className="align_center movie_list_header">
-        <h2 className="align_center movie_list_heading">Trending</h2>
+        <h2 className="align_center movie_list_heading">{title}</h2>
         <div className="align_center movie_list_fs">
           <FilterGroup
             minRating={minRating}
