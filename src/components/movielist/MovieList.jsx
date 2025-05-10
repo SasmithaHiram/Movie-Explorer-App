@@ -5,7 +5,7 @@ import axios from "axios";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
-  // const [filterMovies, setFilterMovies]  =useState(second)
+  const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const MovieList = () => {
         }
       );
       setMovies(response.data.results);
+      setFilterMovies(response.data.results);
       console.log(response.data);
     } catch (error) {
       console.error("Error Fetching Movies", error);
@@ -33,7 +34,7 @@ const MovieList = () => {
     setMinRating(rate);
 
     const filtered = movies.filter((movie) => movie.vote_average >= rate);
-    setMovies(movies)
+    setFilterMovies(filtered);
   };
 
   return (
@@ -69,7 +70,7 @@ const MovieList = () => {
         </div>
       </header>
       <div className="movie_cards">
-        {movies.map((movie) => (
+        {filterMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
