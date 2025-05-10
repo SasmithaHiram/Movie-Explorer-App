@@ -15,7 +15,7 @@ const MovieList = () => {
   const fetchMovies = async () => {
     try {
       const response = await axios.get(
-        "https://api.themoviedb.org/3/discover/movie",
+        "https://api.themoviedb.org/3/trending/movie/day",
         {
           params: {
             api_key: "a859c5b5d3130a70473019bbc95cfd73",
@@ -31,10 +31,15 @@ const MovieList = () => {
   };
 
   const handleFilter = (rate) => {
-    setMinRating(rate);
+    if (rate === minRating) {
+      setMinRating(0);
+      setFilterMovies(movies);
+    } else {
+      setMinRating(rate);
 
-    const filtered = movies.filter((movie) => movie.vote_average >= rate);
-    setFilterMovies(filtered);
+      const filtered = movies.filter((movie) => movie.vote_average >= rate);
+      setFilterMovies(filtered);
+    }
   };
 
   return (
